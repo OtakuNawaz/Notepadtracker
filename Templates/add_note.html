@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if note_name and note_description %}
+
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-info" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>   
+
+        {% endfor %}
+    {% else %}
+    <center>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+        <h2>Folder Name</h2> 
+        {{form.folder_name(class="form-control")}}
+        </div>
+        <div class="mb-3">
+        <h2>File Name</h2> 
+        {{form.note_name(class="form-control")}}
+        </div>
+        <div class="mb-3">
+        <h2>Enter The Details</h2> 
+        {{form.note_description(class="form-control form-control-lg" )}}
+        </div> 
+        <br>
+        {{ form.submit(class="btn btn-secondary")}}
+    </form>
+    </center>
+    {% endif %}
+
+{% endblock %}
