@@ -10,25 +10,25 @@
 
         {% endfor %}
     {% else %}
-    <center>
     <form method="POST">
         {{ form.hidden_tag() }}
-        <div class="mb-3">
-        <h2>Folder Name</h2> 
-        {{form.folder_name(class="form-control")}}
+        <h5>Folder Name</h5>
+                <div class="col-auto">
+                {{form.folder_name(class="form-control form-control-sm",value='C:\\Users\\NawazS\\Desktop\\Notepad Tracker\\Default_Files')}}
+            </div>
+        <h5>File Name</h5> 
+            <div class="col-auto">
+                {{form.note_name(class="form-control form-control-sm")}}
         </div>
         <div class="mb-3">
-        <h2>File Name</h2> 
-        {{form.note_name(class="form-control")}}
-        </div>
-        <div class="mb-3">
-        <h2>Enter The Details</h2> 
-        {{form.note_description(class="form-control form-control-lg" )}}
+        <h5>Enter The Details</h5> 
+        {{form.note_description(class="form-control", id="exampleFormControlTextarea1", rows="12" )}}
         </div> 
-        <br>
-        {{ form.submit(class="btn btn-secondary")}}
+        <div class="d-grid gap-2 col-6 mx-auto">
+        {{ form.submit(class="btn btn-primary")}}
+        </div>
     </form>
-    </center>
+
     {% endif %}
 
 {% endblock %}
