@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import Field,SubmitField,StringField,IntegerField,FloatField
 from wtforms.validators import DataRequired
 from datetime import datetime
-import mysql.connector
+import os
 
 app=Flask(__name__)
 app.config['SECRET_KEY']="my_super_secret_key"
@@ -34,6 +34,7 @@ def add_new_note():
         with open(f'{file_path}.txt','w+') as f:
             f.write(f'{note_description}')
         flash('New Note Created Successfully')
+        os.system('git checkout -b new_branch')
 
     return render_template('add_note.html',form=form,note_name=note_name,note_description=note_description,folder_name=folder_name)
 
