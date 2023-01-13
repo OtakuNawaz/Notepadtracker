@@ -15,10 +15,10 @@ class noteform(FlaskForm):
     note_description=TextAreaField('Enter the details',validators=[DataRequired()])
     submit=SubmitField('Submit')
 def git_functions():
-    os.system('git checkout -b main')
+    os.system('git checkout -b Notepad_tracker_files')
     os.system('git add .')
     os.system('git commit -m "Added/Updated files - ID:{}{}"'.format(random.randint(10,99),random.randint(10,99)))
-    os.system('git push -u origin main')
+    os.system('git push -u origin Notepad_tracker_files')
     print('Pushed Successfully')
 
 @app.route('/',methods=['GET','POST'])
