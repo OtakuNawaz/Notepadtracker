@@ -79,7 +79,7 @@ def editdescription(note_name,folder_name):
             f.write(f'{note_description}')
         flash('File Updated Successfully')
         git_functions()
-    return render_template('edit_files_description.html',form=form,f=msg,note_description=note_description)
+    return render_template('edit_files_description.html',form=form,msg1=msg,note_description=note_description)
 
 if __name__=="__main__":
     app.run(debug=True)
