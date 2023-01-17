@@ -66,7 +66,7 @@ def editfilesfolder():
 @app.route('/editfilesfolder/description/<note_name>,<folder_name>',methods=['GET','POST'])
 def editdescription(note_name,folder_name):
     form=noteform()
-    note_description=None
+    #note_description=None
     form.note_name.data=''
     form.folder_name.data=''
     filepath='\\'.join([folder_name,note_name])
@@ -81,7 +81,8 @@ def editdescription(note_name,folder_name):
         git_functions()
         return redirect('/')
     else:
-        return render_template('edit_files_description.html',form=form,msg='msg',note_description=note_description)
+        print(msg,form['note_description'])
+        return render_template('edit_files_description.html',form=form,msg=msg)
 
 if __name__=="__main__":
     app.run(debug=True)

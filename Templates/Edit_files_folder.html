@@ -11,7 +11,7 @@
 
     {% endfor %}
 {% else %}
-    <form method="POST">
+    <form method="POST",action = '/editfilesfolder/description/{{note_name}},{{folder_name}}'>
         {{ form.hidden_tag() }}
         <h5>Folder Name</h5>
                 <div class="col-auto">
