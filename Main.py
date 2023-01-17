@@ -70,7 +70,7 @@ def editdescription(note_name,folder_name):
     form.note_name.data=''
     form.folder_name.data=''
     filepath='\\'.join([folder_name,note_name])
-    with open('{}.txt'.format(filepath),'r') as f:
+    with open(r'{}.txt'.format(filepath),'r') as f:
         msg=f.read()
     if request.method == 'POST':
         note_description=form.note_description.data
@@ -79,7 +79,9 @@ def editdescription(note_name,folder_name):
             f.write(f'{note_description}')
         flash('File Updated Successfully')
         git_functions()
-    return render_template('edit_files_description.html',form=form,msg1=msg,note_description=note_description)
+        return redirect('/')
+    else:
+        return render_template('edit_files_description.html',form=form,msg='msg',note_description=note_description)
 
 if __name__=="__main__":
     app.run(debug=True)
