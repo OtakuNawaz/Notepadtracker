@@ -3,23 +3,17 @@
 
 {% if note_description %}
     {% for message in get_flashed_messages() %}
-
     <div class="alert alert-info" role="alert">
         <strong>{{ message }}</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>   
-
     {% endfor %}
 {% else %}
     <form method="POST">
-        {{ form.hidden_tag() }}
-        <h5>Folder Name</h5>
-                <div class="col-auto">
-                {{form.folder_name(class="form-control form-control-sm",value='C:\\Users\\NawazS\\Desktop\\Notepad Tracker\\Default_Files')}}
-            </div>
-        <h5>File Name</h5> 
-            <div class="col-auto">
-                {{form.note_name(class="form-control form-control-sm")}}
+        <div class="form-group">
+            <h5>Edit The Note</h5> 
+            {{form.hidden_tag()}}
+            {{form.note_description(class="form-control", rows="10", value= "check" )}}
         </div>
         <br>
         <div class="d-grid gap-2 col-6 mx-auto">
@@ -27,4 +21,5 @@
         </div>
     </form>
 {% endif %}
+
 {% endblock %}
