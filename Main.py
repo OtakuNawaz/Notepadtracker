@@ -81,7 +81,6 @@ def editdescription(note_name,folder_name):
         git_functions()
         return redirect('/')
     else:
-        print(msg,form['note_description'])
         return render_template('edit_files_description.html',form=form,msg=msg)
 
 if __name__=="__main__":
